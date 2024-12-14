@@ -1,0 +1,68 @@
+version: "3.1"
+
+intents:
+  - connect_with_care_coordinator
+  - provide_medical_practice
+  - provide_doctor
+  - confirm_care_coordinator_name
+  - deny_care_coordinator_name
+
+entities:
+  - practice_name
+  - doctor_name
+  - care_coordinator_name
+
+slots:
+  medical_practice:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  doctor:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  care_coordinator_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  care_coordinator_phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_medical_practice:
+    - text: "Can you please tell me the name of your medical practice?"
+  utter_ask_doctor:
+    - text: "Can you please tell me the name of your doctor?"
+  utter_ask_care_coordinator_name:
+    - text: "Do you know the name of your care coordinator?"
+  utter_confirm_care_coordinator_name:
+    - text: "Great, your care coordinator's name is {care_coordinator_name}."
+  utter_deny_care_coordinator_name:
+    - text: "I can help locate your Care Coordinator for you."
+  utter_transfer_to_care_coordinator:
+    - text: "I'm going to transfer you to your Care Coordinator now. Please hold for just a moment."
+  utter_goodbye:
+    - text: "Goodbye!"
+
+actions:
+  - utter_ask_medical_practice
+  - utter_ask_doctor
+  - utter_ask_care_coordinator_name
+  - utter_confirm_care_coordinator_name
+  - utter_deny_care_coordinator_name
+  - utter_transfer_to_care_coordinator
+  - utter_goodbye
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
+
+
+
+  # rasa run --cors "*"

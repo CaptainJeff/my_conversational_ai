@@ -1,0 +1,26 @@
+nlu:
+  - intent: connect_with_care_coordinator
+    examples: |
+      - I want to speak with my care coordinator
+      - Can I talk to my care coordinator?
+      - I need to reach my care coordinator
+
+  - intent: provide_medical_practice
+    examples: |
+      - My medical practice is [practice_name]
+      - I go to [practice_name] for my medical care
+
+  - intent: provide_doctor
+    examples: |
+      - My doctor is [doctor_name]
+      - I see [doctor_name] for my medical needs
+
+  - intent: confirm_care_coordinator_name
+    examples: |
+      - Yes, my care coordinator is [care_coordinator_name]
+      - My care coordinator's name is [care_coordinator_name]
+
+  - intent: deny_care_coordinator_name
+    examples: |
+      - No, I don't know my care coordinator's name
+      - I'm not sure who my care coordinator is
