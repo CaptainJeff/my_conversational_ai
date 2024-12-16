@@ -1,5 +1,8 @@
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
+from rasa_sdk.types import Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
 
 class AskMedicalPractice(Action):
     def name(self):
@@ -22,6 +25,15 @@ class AskCareCoordinatorName(Action):
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_message("Do you know the name of your care coordinator?")
 
+class ConfirmCareCoordinatorStartTask(Action):
+    def name(self):
+        return "utter_confirm_care_coordinator_start_task"
+
+    def run(self, dispatcher, tracker, domain):
+
+        dispatcher.utter_message(f"Hello, this is your Care Partner at CoachCare! Thank you for calling. Would you like help getting connected to your Care Coordinator?")
+
+
 class ConfirmCareCoordinatorName(Action):
     def name(self):
         return "utter_confirm_care_coordinator_name"
@@ -36,6 +48,17 @@ class DenyCareCoordinatorName(Action):
 
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_message("I can help locate your Care Coordinator for you.")
+
+
+class ActionHandleGreeting(Action):
+    def name(self):
+        return "utter_greet"
+
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message(
+            text="Hello, this is your Care Partner at CoachCare! Thank you for calling. Would you like help getting connected to your Care Coordinator?"
+        )
+        return []
 
 class TransferToCareCoordinator(Action):
     def name(self):

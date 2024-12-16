@@ -1,26 +1,122 @@
 nlu:
+  - intent: greet
+    examples: |
+      - Hello
+      - Hi
+      - Hey there
+      - Greetings
+      - Good morning
+      - Good afternoon
+
+  - intent: affirm
+    examples: |
+      - Yes
+      - Sure
+      - Of course
+      - Definitely
+      - I’d like to
+      - Please
+      - Okay
+
+  - intent: deny
+    examples: |
+      - No
+      - Not right now
+      - I don’t think so
+      - No, thank you
+      - Nope
+      
   - intent: connect_with_care_coordinator
     examples: |
       - I want to speak with my care coordinator
       - Can I talk to my care coordinator?
       - I need to reach my care coordinator
+      - I’d like to speak with my care coordinator
+      - Can you connect me to my care coordinator?
+      - I need to get in touch with my care coordinator
+      - May I please talk to my care coordinator?
+      - Can I have a conversation with my care coordinator?
+      - I’d like to reach out to my care coordinator
+      - Is my care coordinator available to talk?
+      - I need to discuss something with my care coordinator
+      - Can I please be connected to my care coordinator?
+      - How can I get ahold of my care coordinator?
+      - Could you help me contact my care coordinator?
+      - I’m trying to talk to my care coordinator
+      - I’d like to follow up with my care coordinator
+      - Can you help me speak to my care coordinator?
+      - I need to check in with my care coordinator
 
   - intent: provide_medical_practice
     examples: |
       - My medical practice is [practice_name]
       - I go to [practice_name] for my medical care
+      - My healthcare provider is [practice_name]
+      - I visit [practice_name] for my treatments
+      - I am a patient at [practice_name]
+      - My doctor is at [practice_name]
+      - I get my medical care from [practice_name]
+      - [practice_name] is my medical practice
+      - I go to [practice_name] for checkups
+      - I receive treatment at [practice_name]
+      - My clinic is [practice_name]
+      - I am seen at [practice_name]
+      - I get my healthcare from [practice_name]
+      - [practice_name] is where I get medical help
+      - [practice_name] is the practice I go to
 
   - intent: provide_doctor
     examples: |
       - My doctor is [doctor_name]
       - I see [doctor_name] for my medical needs
+      - Dr. [doctor_name] is my physician
+      - I am treated by [doctor_name]
+      - My healthcare provider is Dr. [doctor_name]
+      - I go to Dr. [doctor_name] for my checkups
+      - Dr. [doctor_name] takes care of my medical issues
+      - I visit Dr. [doctor_name] for my treatments
+      - My primary care doctor is Dr. [doctor_name]
+      - [doctor_name] is the doctor I see
+      - My medical care is provided by Dr. [doctor_name]
+      - I am a patient of Dr. [doctor_name]
+      - Dr. [doctor_name] handles my health concerns
+      - I consult Dr. [doctor_name] for my health
+      - Dr. [doctor_name] is my regular doctor
+
 
   - intent: confirm_care_coordinator_name
     examples: |
       - Yes, my care coordinator is [care_coordinator_name]
       - My care coordinator's name is [care_coordinator_name]
+      - That’s correct, [care_coordinator_name] is my care coordinator
+      - My coordinator is [care_coordinator_name]
+      - I am assigned to [care_coordinator_name]
+      - [care_coordinator_name] is the person I work with
+      - Yes, I’m working with [care_coordinator_name]
+      - [care_coordinator_name] is handling my care
+      - My case manager is [care_coordinator_name]
+      - [care_coordinator_name] oversees my care
+      - I believe it’s [care_coordinator_name]
+      - [care_coordinator_name] is my coordinator
+      - Yes, I’m in touch with [care_coordinator_name]
+      - [care_coordinator_name] is responsible for my care
+      - Yes, that’s [care_coordinator_name]
+
 
   - intent: deny_care_coordinator_name
     examples: |
       - No, I don't know my care coordinator's name
       - I'm not sure who my care coordinator is
+      - I don’t remember my care coordinator's name
+      - I have no idea who my care coordinator is
+      - I’m unsure about my care coordinator's name
+      - I don’t think I have a care coordinator
+      - I’m not aware of my care coordinator's name
+      - No, I can’t recall my care coordinator
+      - I don’t know if I have a care coordinator
+      - My care coordinator’s name escapes me
+      - I can’t think of my care coordinator's name
+      - I’m not familiar with my care coordinator
+      - I have no knowledge of my care coordinator's name
+      - No, I haven’t been told my care coordinator's name
+      - I’ve never heard of my care coordinator

@@ -7,6 +7,25 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: greet user and ask about care coordinator
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: user affirms care coordinator help
+  condition:
+    - slot_was_set:
+        - needs_care_coordinator: true
+  steps:
+    - action: utter_ask_medical_practice
+
+- rule: user denies care coordinator help
+  condition:
+    - slot_was_set:
+        - needs_care_coordinator: false
+  steps:
+    - action: utter_no_help_needed
+
 # - rule: Say 'I am a bot' anytime the user challenges
 #   steps:
 #   - intent: bot_challenge

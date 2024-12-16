@@ -1,11 +1,16 @@
 version: "3.1"
 
 intents:
+  - greet
+  - affirm
+  - deny
   - connect_with_care_coordinator
   - provide_medical_practice
   - provide_doctor
   - confirm_care_coordinator_name
   - deny_care_coordinator_name
+
+
 
 entities:
   - practice_name
@@ -13,6 +18,16 @@ entities:
   - care_coordinator_name
 
 slots:
+  needs_care_coordinator:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
   medical_practice:
     type: text
     influence_conversation: true
@@ -35,8 +50,14 @@ slots:
       - type: custom
 
 responses:
+  utter_greet:
+    - text: "Hello, this is your Care Partner at CoachCare! Thank you for calling. Would you like help getting connected to your Care Coordinator?"
+  utter_continue_questions:
+    - text: "Great. I just need to ask a few questions to locate your coordinator."
+  utter_no_help_needed:
+    - text: "Okay. What else can I help you with?"
   utter_ask_medical_practice:
-    - text: "Can you please tell me the name of your medical practice?"
+    - text: "Can you please tell me the name of your medical practice? 222"
   utter_ask_doctor:
     - text: "Can you please tell me the name of your doctor?"
   utter_ask_care_coordinator_name:
@@ -51,6 +72,7 @@ responses:
     - text: "Goodbye!"
 
 actions:
+  - utter_greet
   - utter_ask_medical_practice
   - utter_ask_doctor
   - utter_ask_care_coordinator_name

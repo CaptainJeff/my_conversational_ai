@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS files
+.DS_Store
+
+# Rasa model files
+/models/
+*.tar.gz
+
+# Rasa training data cache
+/data/cache/
+
+# Logs
+*.log
+logs/
+
+# IDE configuration files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Python package files
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Rasa temporary files
+*.db
+.rasa/
+results/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest and coverage
+*.cover
+.coverage
+*.coveragerc
+.cache/
+.nox/
+htmlcov/
+*.pytest_cache/
+
+# Pip environment files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# User-specific files
+*.swp
+*.bak
+*.tmp
+*.orig
+*.~lock.*
+Thumbs.db
+
+# Endpoints and credentials (if sensitive)
+credentials.yml
+endpoints.yml
+
+# Ignore compiled translation files
+*.mo
+*.pot
+
+# Node.js dependencies (if present)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Rasa action server (compiled Python files or temporary files)
+actions/__pycache__/
