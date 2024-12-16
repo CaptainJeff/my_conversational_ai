@@ -1,4 +1,13 @@
 nlu:
+  - intent: greet
+    examples: |
+      - Hi
+      - Hello
+      - Hey
+      - Hi there
+      - Good morning
+      - Good evening
+      - Howdy
   - intent: connect_with_care_coordinator
     examples: |
       - I want to speak with my care coordinator
@@ -9,6 +18,8 @@ nlu:
     examples: |
       - My medical practice is [practice_name]
       - I go to [practice_name] for my medical care
+      - [practice_name] is my medical practice
+      - [practice_name]
 
   - intent: provide_doctor
     examples: |

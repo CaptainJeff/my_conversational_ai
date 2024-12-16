@@ -1,0 +1,16 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpbhMiAUAQvc0lw==": "action_listen",
+    "eJydjkEKwzAMBL/iB/QF/kopwqhLKmilomzSg/Hfa0jvgd52YBj22sel9Hdil6a08Fr6McTbC7X84Gkr4dPdVuR0zCeyliUBjpPGRiLlUP8rnLzQcIdSPsaHaEuIRuTdvDFyjNsXgZJYVg==": "utter_ask_medical_practice",
+    "eJydjlEKwkAMRK+yB/AEe5UiIaRDDbbZkk31Y+ndXan/Vf9m4PFmhrZfUlsdD2IJLZZTOwIZL8jpU2atAevsVuGdUes1cpociP3EsUXA6UD/M5y8kGIGCXpq3EjYQVKKj2ocxb97x/VOC0YVnmn1NyD4eej6AhOJgVM=": "action_listen",
+    "eJytj0EKAjEMRa/SA3iCXkUkhDRocCYtaWZclN7dyrhzURF3+fD4/+Xc+im0YrwDkkvWGNpxgOLKMbzDItVZB7tVtsGIjugxXI3Z+6Rjc2eDA/2tYWJBWZXJ4SF+A0JjoJwtiaJn+84O6x1WTkK4QLEXQPznockTxfIuiT8t+uUJsoai4Q==": "utter_ask_doctor",
+    "eJytj0EKwzAMBL/iB/QF+UopwsiiFU0kIyvpweTvdUhuPTgtvWlh2B1d63oJNRstENFZZQh1P0DiREM4wsjFSRo7F7LGsLToQ7gbka+djtmdDHb0t4aOBaoIocOL/QEYjQBVLbFEVztnF8sTJkqMcYRsG4D056HOE9l04USfFqf9k+Km8UXz7Q0RY8W/": "action_listen",
+    "eJytj0EKwzAMBL/iB/QF+UopwsiiFU0kIyvpweTvdUhuPcSU3LQw7I7udb2Fmo0WiOisMoS6HyBxoiEcYeTiJI2dC1ljWFr0ITyNyNeTjtmdDHb0v4YTC1QRQocP+wswGgGqWmKJrtZnF8sbJkqMcYRsG4B08dDJE9l04US/Ft3+SXHTuKy5U/iYXR9f/QbjXw==": "utter_ask_care_coordinator_name",
+    "eJytkMEJwzAMRVfxAJ3Aq5QijCxa0UQyipIeQnZv0uTUHmxKbvrw+HrSdV4uYS5GEyR0Volh3geQ1FMMR+h4cJKVHQeylWFZo8dwNyJfKh2jOxns6H8NFQtUEUKHF/sDMBkBqlpmSa7WZpeGJ/SUGVMHxTYA6eRFlSOK6cSZfi2a/bPipnFac6PwsbZZ8/tvH6Bef3sDO5EIcQ==": "action_listen",
+    "eJytklsKwkAMRbcyC3AF3YpIGDJRg21S0rR+lO7dvr4UmUH7l8Dh3pNhzuN0CmNrNEBEZ5UqjNsAEhuqwr7U3DnJzPYd2cywzKtX4WZEPmUyency2NDfEjIWqCKEDk/2O2A0AlS1xBJdrcwudg9oKDHGGlpbAKSDizJHtKYDJ/q0KPZPiovGYcmFwnttseb7u63Av/H5H3Jla750T5cXmoMsGQ==": "utter_confirm_care_coordinator_name",
+    "eJytkkEOgkAMRa8yB/AEXMWYZtKp2ggtKQUXhLuLwkqjMyq7Nnn5/3Uy+3HahbE1GiCis0oVxmUAiQ1VYV1q7pxkZvuObGZY5tWrcDIinzIZvTsZLOhvCRkLVBFChyv7GTAaAapaYomuVmYXuws0lBhjDa3dAaSNizJHtKYDJ3q1KPZPineNzZILhdfaYs3nd3sA/8bnf8iRrXnTXaT+OeLbxsMNJtdY0w==": "utter_transfer_to_care_coordinator",
+    "eJy1klEOgjAMhq/CATwBVzFmWbqijdCSruAD4e6C8CTRTcW3Nvnz/d+WHofxUAytYu88GAmXxbAMjn2DZbEuNUVDnrJdRJ0yxNNqZXFWRBsTjM4M1S3R7wgJCxBmBHM3sosDr+hARAOxN9E8Ox+vrsFA4GvX6hwA3Lko8YhWpaeAW4ts/yAwa+xGzhRea7M1n//tEfgVn76QirR50Z2l/h7xj0ZTz7GaB9ke26eFpzshUoVG": "action_listen"
+  }
+}

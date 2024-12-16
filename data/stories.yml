@@ -1,8 +1,16 @@
 version: "3.1"
 
 stories:
+  - story: greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
+      # - action: synthesize_text
   - story: connect with care coordinator
     steps:
+      - intent: greet
+      - action: utter_greet
+      # - action: synthesize_text
       - intent: connect_with_care_coordinator
       - action: utter_ask_medical_practice
       - intent: provide_medical_practice

@@ -1,0 +1,8 @@
+transformers
+torch
+requests
+rasa
+torchaudio
+torchvision
+soundfile
+pydub

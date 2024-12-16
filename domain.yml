@@ -1,6 +1,7 @@
 version: "3.1"
 
 intents:
+  - greet
   - connect_with_care_coordinator
   - provide_medical_practice
   - provide_doctor
@@ -35,8 +36,11 @@ slots:
       - type: custom
 
 responses:
+  utter_greet:
+    - text: "Hello! How can I help you today?"
   utter_ask_medical_practice:
-    - text: "Can you please tell me the name of your medical practice?"
+    - text: "Can1 you please tell me the name of your medical practice?"
+      # channel: CustomAudioChannel
   utter_ask_doctor:
     - text: "Can you please tell me the name of your doctor?"
   utter_ask_care_coordinator_name:
@@ -51,6 +55,7 @@ responses:
     - text: "Goodbye!"
 
 actions:
+  - greet_user
   - utter_ask_medical_practice
   - utter_ask_doctor
   - utter_ask_care_coordinator_name
@@ -59,10 +64,8 @@ actions:
   - utter_transfer_to_care_coordinator
   - utter_goodbye
 
+
+
 session_config:
   session_expiration_time: 60  # value in minutes
   carry_over_slots_to_new_session: true
-
-
-
-  # rasa run --cors "*"
