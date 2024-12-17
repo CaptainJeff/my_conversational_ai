@@ -1,90 +1,72 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - affirm
-  - deny
-  - connect_with_care_coordinator
-  - provide_medical_practice
-  - provide_doctor
-  - confirm_care_coordinator_name
-  - deny_care_coordinator_name
-
-
-
+- affirm
+- deny
+- fallback
+- greet
+- nlu_fallback
+- provide_coordinator_name
+- provide_doctor_name
+- provide_practice_name
 entities:
-  - practice_name
-  - doctor_name
-  - care_coordinator_name
-
+- coordinator_name
+- medical_practice
+- doctor_name
 slots:
   needs_care_coordinator:
     type: bool
     influence_conversation: true
     mappings:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
   medical_practice:
     type: text
-    influence_conversation: true
     mappings:
-      - type: custom
-  doctor:
+    - type: from_entity
+      intent: provide_practice_name
+      entity: medical_practice
+  doctor_name:
     type: text
-    influence_conversation: true
     mappings:
-      - type: custom
-  care_coordinator_name:
+    - type: from_entity
+      intent: provide_doctor_name
+      entity: doctor_name
+  coordinator_name:
     type: text
-    influence_conversation: true
     mappings:
-      - type: custom
-  care_coordinator_phone_number:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: custom
-
+    - type: from_entity
+      entity: coordinator_name
 responses:
   utter_greet:
-    - text: "Hello, this is your Care Partner at CoachCare! Thank you for calling. Would you like help getting connected to your Care Coordinator?"
-  utter_continue_questions:
-    - text: "Great. I just need to ask a few questions to locate your coordinator."
-  utter_no_help_needed:
-    - text: "Okay. What else can I help you with?"
-  utter_ask_medical_practice:
-    - text: "Can you please tell me the name of your medical practice? 222"
-  utter_ask_doctor:
-    - text: "Can you please tell me the name of your doctor?"
-  utter_ask_care_coordinator_name:
-    - text: "Do you know the name of your care coordinator?"
-  utter_confirm_care_coordinator_name:
-    - text: "Great, your care coordinator's name is {care_coordinator_name}."
-  utter_deny_care_coordinator_name:
-    - text: "I can help locate your Care Coordinator for you."
-  utter_transfer_to_care_coordinator:
-    - text: "I'm going to transfer you to your Care Coordinator now. Please hold for just a moment."
-  utter_goodbye:
-    - text: "Goodbye!"
-
+  - text: Hello, this is your Care Partner at CoachCare! Thank you for calling. Would you like help getting connected to your Care Coordinator?
+  utter_no_problem:
+  - text: Okay. What else can I help you with?
+  utter_collect_info:
+  - text: Great. I just need to ask a few questions to locate your coordinator.
+  utter_ask_practice_name:
+  - text: Can you please tell me the name of your medical practice?
+  utter_ask_doctor_name:
+  - text: Can you please tell me the name of your doctor?
+  utter_ask_coordinator_name:
+  - text: Can you please tell me the name of your care coordinator?
+  utter_no_coordinator_name:
+  - text: That is okay. I will try to look up the information without it.
+  utter_transfer_confirm:
+  - text: Please wait while I connect you. If nobody is available, please leave a message.
+  utter_ask_anything_else:
+  - text: Okay. What else can I help you with?
 actions:
-  - utter_greet
-  - utter_ask_medical_practice
-  - utter_ask_doctor
-  - utter_ask_care_coordinator_name
-  - utter_confirm_care_coordinator_name
-  - utter_deny_care_coordinator_name
-  - utter_transfer_to_care_coordinator
-  - utter_goodbye
-
+- utter_ask_practice_name
+- utter_ask_doctor_name
+- utter_greet
+- utter_collect_info
+- utter_transfer_confirm
+- utter_ask_coordinator_name
+- action_lookup_coordinator_info
 session_config:
-  session_expiration_time: 60  # value in minutes
+  session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
-
-
-  # rasa run --cors "*"

@@ -1,27 +1,196 @@
+# version: "3.1"
+
+# # stories:
+# #   - story: handle greeting and proceed with care coordinator flow
+# #     steps:
+# #       - intent: greet
+# #       - action: utter_greet
+# #       - intent: affirm
+      # - slot_was_set:
+      #     - needs_care_coordinator: true
+# #       - action: utter_ask_medical_practice
+# #       - intent: provide_medical_practice
+# #       - action: utter_ask_doctor
+# #       - intent: provide_doctor
+# #       - action: utter_ask_care_coordinator_name
+# #       - intent: provide_care_coordinator_name
+# #       - action: utter_confirm_care_coordinator_name
+# #       - action: utter_transfer_to_care_coordinator
+
+# stories:
+#   - story: handle greeting and proceed with care coordinator flow
+#     steps:
+#       - intent: greet
+#       - action: utter_greet
+#       - intent: affirm
+#       - slot_was_set:
+#           - needs_care_coordinator: true
+#       - action: name_form  # Activate the form
+#       - active_loop: name_form  # Form remains active
+#       - action: utter_ask_care_coordinator_name
+#       - intent: provide_care_coordinator_name
+#       - action: utter_confirm_care_coordinator_name
+#       - action: utter_transfer_to_care_coordinator
+
+#   - story: handle greeting and no help needed
+#     steps:
+#       - intent: greet
+#       - action: utter_greet
+#       - intent: deny
+#       - slot_was_set:
+#           - needs_care_coordinator: false
+#       - action: utter_no_help_needed
+
+#   # - story: user denies providing medical practice
+#   #   steps:
+#   #     - action: utter_ask_medical_practice
+#   #     - intent: deny
+#   #     - action: utter_cannot_proceed_without_practice
+
+#   # - story: user denies providing doctor
+#   #   steps:
+#   #     - action: utter_ask_doctor
+#   #     - intent: deny
+#   #     - action: utter_cannot_proceed_without_doctor
+
+#   # - story: user denies providing care coordinator
+#   #   steps:
+#   #     - action: utter_ask_care_coordinator_name
+#   #     - intent: deny
+#   #     - action: utter_cannot_proceed_without_coordinator
+
+
+#   # - story: handle greeting and proceed with care coordinator flow
+#   #   steps:
+#   #     - intent: greet
+#   #     - action: utter_greet
+#   #     - intent: affirm
+#   #     - slot_was_set:
+#   #         - needs_care_coordinator: true
+#   #     - action: name_form  # Activate the form
+#   #     - active_loop: name_form  # Form remains active
+#   #     - slot_was_set:
+#   #         - practice_name: "Central Clinic"
+#   #     - slot_was_set:
+#   #         - doctor_name: "Dr. Adams"
+#   #     - slot_was_set:
+#   #         - care_coordinator_name: "Leslie Jones"
+#   #     - active_loop: null  # Deactivate the form
+#   #     - action: utter_confirm_care_coordinator_name
+#   #     - action: utter_transfer_to_care_coordinator
+
+
 version: "3.1"
 
 stories:
-  - story: handle greeting and proceed with care coordinator flow
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: affirm
-      - slot_was_set:
-          - needs_care_coordinator: true
-      - action: utter_ask_medical_practice
-      - intent: provide_medical_practice
-      - action: utter_ask_doctor
-      - intent: provide_doctor
-      - action: utter_ask_care_coordinator_name
-      - intent: confirm_care_coordinator_name
-      - action: utter_confirm_care_coordinator_name
-      - action: utter_transfer_to_care_coordinator
+- story: greet and deny help
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: deny
+    - action: utter_no_problem
 
-  - story: handle greeting and no help needed
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: deny
-      - slot_was_set:
-          - needs_care_coordinator: false
-      - action: utter_no_help_needed
+# - story: collect coordinator info and transfer
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: affirm
+#     - slot_was_set:
+#           - needs_care_coordinator: true
+#     - action: utter_collect_info
+#     - intent: provide_practice_name
+#     - action: utter_ask_practice_name
+#     - intent: provide_practice_name
+#     - action: utter_ask_doctor_name
+#     - intent: provide_doctor_name
+#     - action: utter_ask_coordinator_name
+#     - intent: fallback
+#     - action: utter_no_coordinator_name
+#     - action: action_lookup_coordinator_info
+#     - action: utter_transfer_confirm
+
+# - story: handle fallback for missing coordinator name
+#   steps:
+#     - intent: fallback
+#     - action: utter_no_coordinator_name
+#     - action: action_lookup_coordinator_info
+#     - action: utter_transfer_confirm
+
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - slot_was_set:
+#           - needs_care_coordinator: true
+#   - action: utter_collect_info
+#   - action: utter_ask_practice_name
+#   - intent: provide_practice_name
+#     entities:
+#     - medical_practice: Slimlife Medical Clinic
+#   - slot_was_set:
+#     - medical_practice: Slimlife Medical Clinic
+#   - action: utter_ask_doctor_name
+#   - intent: provide_coordinator_name
+#     entities:
+#     - doctor_name: Dr. Jason Malcolm
+#   - slot_was_set:
+#     - medical_practice: Slimlife Medical Clinic
+#   - slot_was_set:
+#     - doctor_name: Jason Malcolm
+#   - intent: provide_doctor_name
+#     entities:
+#     - doctor_name: Jason Malcolm
+#   - action: utter_ask_coordinator_name
+#   - intent: provide_coordinator_name
+#     entities:
+#     - coordinator_name: Lisa Leslie
+#   - slot_was_set:
+#     - coordinator_name: Lisa Leslie
+#   - intent: provide_coordinator_name
+#     entities:
+#     - coordinator_name: Lisa Leslie
+#   - action: utter_transfer_confirm
+#   - intent: nlu_fallback
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - slot_was_set:
+          - needs_care_coordinator: true
+  - action: utter_collect_info
+  - intent: provide_practice_name
+  - action: utter_ask_practice_name
+  - action: utter_ask_doctor_name
+  - intent: provide_doctor_name
+  # - intent: provide_practice_name
+  #   entities:
+  #   - medical_practice: Slimlife Medical Clinic
+  # - slot_was_set:
+  #   - medical_practice: Slimlife Medical Clinic
+  # - action: utter_ask_doctor_name
+  # - intent: provide_coordinator_name
+  #   entities:
+  #   - doctor_name: Dr. Jason Malcolm
+  # - slot_was_set:
+  #   - medical_practice: Slimlife Medical Clinic
+  # - slot_was_set:
+  #   - doctor_name: Jason Malcolm
+  # - intent: provide_doctor_name
+  #   entities:
+  #   - doctor_name: Jason Malcolm
+  # - action: utter_ask_coordinator_name
+  # - intent: provide_coordinator_name
+  #   entities:
+  #   - coordinator_name: Lisa Leslie
+  # - slot_was_set:
+  #   - coordinator_name: Lisa Leslie
+  # - intent: provide_coordinator_name
+  #   entities:
+  #   - coordinator_name: Lisa Leslie
+  # - action: utter_transfer_confirm
+  # - intent: nlu_fallback

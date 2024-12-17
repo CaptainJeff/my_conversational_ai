@@ -1,32 +1,118 @@
+# # version: "3.1"
+
+# rules:
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# # - rule: greet user and ask about care coordinator
+# #   steps:
+# #     - intent: greet
+# #     - action: utter_greet
+
+# - rule: activate form
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: care_coordinator_form
+#   - active_loop: care_coordinator_form
+
+# - rule: submit form
+#   condition:
+#   - active_loop: care_coordinator_form
+#   steps:
+#   - action: validate_care_coordinator_form
+#   - action: care_coordinator_form
+#   - active_loop: null
+#   # - action: utter_submitted
+
+# # - rule: user affirms care coordinator help
+# #   condition:
+# #     - slot_was_set:
+# #         - needs_care_coordinator: true
+# #   steps:
+# #     - action: name_form  # Start the form
+# #     - active_loop: name_form
+
+# # - rule: user denies care coordinator help
+# #   condition:
+# #     - slot_was_set:
+# #         - needs_care_coordinator: false
+# #   steps:
+# #     - action: utter_no_help_needed
+
+
+# # # - rule: handle denial of medical practice
+# # #   steps:
+# # #     - action: utter_ask_medical_practice
+# # #     - intent: deny
+# # #     - action: utter_cannot_proceed_without_practice
+
+# # - rule: handle denial of doctor
+# #   steps:
+# #     - action: utter_ask_doctor
+# #     - intent: deny
+# #     - action: utter_cannot_proceed_without_doctor
+
+# # - rule: handle denial of care coordinator
+# #   steps:
+# #     - action: utter_ask_care_coordinator_name
+# #     - intent: deny
+# #     - action: utter_cannot_proceed_without_coordinator
+
+# # - rule: ask for doctor after medical practice
+# #   steps:
+# #     - intent: provide_medical_practice
+# #     - action: utter_ask_doctor
+
+# # - rule: ask for care coordinator after doctor
+# #   steps:
+# #     - intent: provide_doctor
+# #     - action: utter_ask_care_coordinator_name
+
+# # - rule: Activate name form
+# #   steps:
+# #     - intent: affirm
+# #     - action: name_form
+# #     - active_loop: name_form
+
+# # - rule: Submit name form
+# #   condition:
+# #     - active_loop: name_form
+# #   steps:
+# #     - active_loop: null
+# #     - action: utter_confirm_care_coordinator_name
+# #     - action: utter_transfer_to_care_coordinator
+
+# # - rule: Activate name form
+# #   steps:
+# #     - intent: affirm
+# #     - action: name_form
+# #     - active_loop: name_form
+
+# # - rule: Submit name form
+# #   condition:
+# #     - active_loop: name_form
+# #   steps:
+# #     - active_loop: null
+# #     - action: utter_confirm_care_coordinator_name
+# #     - action: utter_transfer_to_care_coordinator
+
 version: "3.1"
 
-rules:
-
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
-- rule: greet user and ask about care coordinator
-  steps:
-    - intent: greet
-    - action: utter_greet
-
-- rule: user affirms care coordinator help
-  condition:
-    - slot_was_set:
-        - needs_care_coordinator: true
-  steps:
-    - action: utter_ask_medical_practice
-
-- rule: user denies care coordinator help
-  condition:
-    - slot_was_set:
-        - needs_care_coordinator: false
-  steps:
-    - action: utter_no_help_needed
-
-# - rule: Say 'I am a bot' anytime the user challenges
+# rules:
+# - rule: Handle fallback (no coordinator name)
 #   steps:
-#   - intent: bot_challenge
-#   - action: utter_iamabot
+#     - intent: fallback
+#     - action: utter_no_coordinator_name
+#     - action: action_lookup_coordinator_info
+
+
+rules:
+# - rule: Handle fallback (no coordinator name)
+#   steps:
+#     - intent: fallback
+#     - action: utter_no_coordinator_name
+#     - action: action_lookup_coordinator_info
