@@ -10,11 +10,21 @@ stories:
           - needs_care_coordinator: true
       - action: utter_ask_medical_practice
       - intent: provide_medical_practice
+        entities:
+          - medical_practice: "Remedy Medical"
+      - action: action_validate_medical_practice
       - action: utter_ask_doctor
       - intent: provide_doctor
+        entities:
+          - doctor_name: "Yeah, I see Neil Patel"
       - action: utter_ask_care_coordinator_name
-      - intent: confirm_care_coordinator_name
-      - action: utter_confirm_care_coordinator_name
+      - intent: provide_care_coordinator_name
+        entities:
+          - care_coordinator_name: "Yup, that would be Lisa Lopez"
+      - action: action_process_care_coordinator_name
+      - intent: confirm_transfer
+      - slot_was_set:
+          - transfer_to_coordinator: true
       - action: utter_transfer_to_care_coordinator
 
   - story: handle greeting and no help needed
@@ -25,3 +35,12 @@ stories:
       - slot_was_set:
           - needs_care_coordinator: false
       - action: utter_no_help_needed
+
+  # - story: Collect care coordinator name and process
+  #   steps:
+  #     - action: utter_ask_care_coordinator_name
+  #     - intent: provide_care_coordinator_name
+  #       entities:
+  #         - care_coordinator_name: "John Doe"
+  #     - action: action_process_care_coordinator_name
+

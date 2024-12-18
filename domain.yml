@@ -4,18 +4,20 @@ intents:
   - greet
   - affirm
   - deny
-  - connect_with_care_coordinator
+  # - connect_with_care_coordinator
   - provide_medical_practice
   - provide_doctor
+  - provide_care_coordinator_name
   - confirm_care_coordinator_name
   - deny_care_coordinator_name
-
-
+  - confirm_transfer
+  - deny_transfer
 
 entities:
-  - practice_name
+  - medical_practice
   - doctor_name
   - care_coordinator_name
+  - transfer_to_coordinator
 
 slots:
   needs_care_coordinator:
@@ -28,26 +30,37 @@ slots:
       - type: from_intent
         intent: deny
         value: false
+
+  transfer_to_coordinator:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: confirm_transfer
+        value: true
+      - type: from_intent
+        intent: deny_transfer
+        value: false
   medical_practice:
     type: text
     influence_conversation: true
     mappings:
-      - type: custom
-  doctor:
+      - type: from_entity
+        entity: medical_practice
+  doctor_name:
     type: text
     influence_conversation: true
     mappings:
-      - type: custom
+      - type: from_entity
+        intent: provide_doctor
+        entity: doctor_name
   care_coordinator_name:
     type: text
     influence_conversation: true
     mappings:
-      - type: custom
-  care_coordinator_phone_number:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: custom
+      - type: from_entity
+        entity: care_coordinator_name
+
 
 responses:
   utter_greet:
@@ -57,9 +70,9 @@ responses:
   utter_no_help_needed:
     - text: "Okay. What else can I help you with?"
   utter_ask_medical_practice:
-    - text: "Can you please tell me the name of your medical practice? 222"
+    - text: "Can you please tell me the name of your medical practice?"
   utter_ask_doctor:
-    - text: "Can you please tell me the name of your doctor?"
+    - text: "Okay, great. Can you please tell me the name of your doctor?"
   utter_ask_care_coordinator_name:
     - text: "Do you know the name of your care coordinator?"
   utter_confirm_care_coordinator_name:
@@ -67,7 +80,7 @@ responses:
   utter_deny_care_coordinator_name:
     - text: "I can help locate your Care Coordinator for you."
   utter_transfer_to_care_coordinator:
-    - text: "I'm going to transfer you to your Care Coordinator now. Please hold for just a moment."
+    - text: "Great. I'm going to transfer you to your Care Coordinator now. Please hold for just a moment. If the office does not answer, please leave a message and they will return your call"
   utter_goodbye:
     - text: "Goodbye!"
 
@@ -78,12 +91,15 @@ actions:
   - utter_ask_care_coordinator_name
   - utter_confirm_care_coordinator_name
   - utter_deny_care_coordinator_name
+  - action_process_care_coordinator_name
   - utter_transfer_to_care_coordinator
   - utter_goodbye
+  - action_validate_medical_practice
+  - action_confirm_transfer_to_phone
 
 session_config:
   session_expiration_time: 60  # value in minutes
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false
 
 
 
